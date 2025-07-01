@@ -6,7 +6,7 @@ function App() {
 
     // appel API une seule fois au chargement
     useEffect(() => {
-        fetch("http://localhost:5000/api/data")
+        fetch("http://localhost:3001/api/data")
             .then((res) => res.json())
             .then((data) => setDonnees(data))
             .catch((err) => console.error("Erreur API :", err));
