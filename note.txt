@@ -1,0 +1,20 @@
+1 - Ajout de données en temps réel avec un temps de rafraichissement 
+disont tout les 5 secondes avec spécificités:
+
+-   Si seuil atteint dépasser (une moyenne sera prédéfinit) alors les
+    couleurs/indications seront en rouge
+
+
+2 - Historique et visualisation graphique (heure/minutes enregistrer)
+
+3 - Créeation des fonctionnalitées montrant une courbe qui s'accroit 
+dans le temps selon le taux enregistrer
+
+4 - Filtres avancés
+Filtrer les données par type (CO2, température, humidité)
+
+5 - Système d’alertes
+
+6. User Interface / UX
+- Interface responsive et ergonomique (mobile + desktop)
+- Thème clair/sombre
