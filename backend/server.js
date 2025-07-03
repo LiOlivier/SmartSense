@@ -9,17 +9,19 @@ const PORT = process.env.PORT || 3001;
 const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI) 
-  .then(() => {
+  .then(() =>
+  {
     console.log("🛢️ Connexion MongoDB réussie");
-    app.listen(PORT, () => {
-      console.log("Serveur SmartSense lancé avec le port : ${PORT}");
+    app.listen(PORT, () =>
+    {
+      console.log(`Serveur SmartSense lancé avec le port : ${PORT}`);
     });
   })
   .catch(err => {
     console.error("Erreur de connexion MongoDB :", err);
   });
 
-const Data = require("../models/Data");  // importation 
+const Data = require("./models/Data");  // importation de notre schéma de données 
 
 app.get("/api/data", async (req, res) => {
   try {
@@ -30,13 +32,17 @@ app.get("/api/data", async (req, res) => {
   }
 });
 
-app.post("/api/data", async (req, res) => {
-  try {
+app.post("/api/data", async (req, res) =>
+{
+  try
+  {
     const { capteur, type, valeur, timestamp } = req.body;
     const nouvelleMesure = new Data({ capteur, type, valeur, timestamp });
     await nouvelleMesure.save();
     res.status(201).json({ message: "Mesure enregistrée avec succès" });
-  } catch (err) {
+  }
+  catch (err) 
+  {
     console.error("Erreur POST :", err);
     res.status(500).json({ error: "Erreur serveur" });
   }
