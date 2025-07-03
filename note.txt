@@ -18,3 +18,9 @@ Filtrer les données par type (CO2, température, humidité)
 6. User Interface / UX
 - Interface responsive et ergonomique (mobile + desktop)
 - Thème clair/sombre
+
+
+
+(je dois fetcher les données dans Dashboard.jsx ou App.js avec
+un "useEffect" fetcher les données du backend et les stocker dans
+un "useState")

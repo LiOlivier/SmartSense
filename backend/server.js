@@ -1,25 +1,25 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); // pour parser le JSON dans les requêtes
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; 
 const mongoURI = process.env.MONGO_URI;
 
-mongoose.connect(mongoURI)
+mongoose.connect(mongoURI) 
   .then(() => {
-    console.log('🛢️ Connexion MongoDB réussie');
+    console.log("🛢️ Connexion MongoDB réussie");
     app.listen(PORT, () => {
-      console.log(`Serveur SmartSense lancé avec le port : ${PORT}`);
+      console.log("Serveur SmartSense lancé avec le port : ${PORT}");
     });
   })
   .catch(err => {
-    console.error('Erreur de connexion MongoDB :', err);
+    console.error("Erreur de connexion MongoDB :", err);
   });
 
-const Data = require('./models/Data'); // adapte le chemin si besoin
+const Data = require("../models/Data");  // importation 
 
 app.get("/api/data", async (req, res) => {
   try {
