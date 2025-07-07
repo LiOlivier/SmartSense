@@ -19,3 +19,10 @@ export async function postData(data)
   if (!response.ok) throw new Error('Erreur lors du POST');
   return response.json();
 }
+
+
+export async function getData() {
+  const response = await fetch("http://localhost:3001/api/data");
+  if (!response.ok) throw new Error("Erreur API");
+  return response.json();
+}

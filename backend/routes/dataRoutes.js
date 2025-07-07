@@ -21,7 +21,7 @@ router.get("/", async (req, res) =>
     }
 });
 
-rouget.post("/", async (req, res) =>
+router.post("/", async (req, res) =>
 {
     try 
     {
@@ -36,21 +36,5 @@ rouget.post("/", async (req, res) =>
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-// importation de la fonction enregistrerDonnee() dans dataController.js -> enregistrement de donnée dans MongoDB
-const{enregistrerDonnee} = require("../controllers/dataController");
-
-//si une requête POST est envoyé /api/data ça exécute enregistrerDonnee()
-router.post("/", enregistrerDonnee);
-
-//exportation du routeur pour l'utiliser dans le fichier principal
+// Exportation du routeur pour l'utiliser dans le fichier server.js
 module.exports = router;

@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors"); 
+
 const app = express();
 
 app.use(express.json()); // pour parser le JSON dans les requêtes
+app.use(cors());
 
 const PORT = process.env.PORT || 3001; 
 const mongoURI = process.env.MONGO_URI;
@@ -21,7 +24,7 @@ mongoose.connect(mongoURI)
     console.error("Erreur de connexion MongoDB :", err);
   });
 
-const Data = require("./models/Data");  // importation de notre schéma de données 
+const Data = require("./models/Data");  // importation de notre schéma de données de Data
 
 app.get("/api/data", async (req, res) => {
   try {

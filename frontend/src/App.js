@@ -4,13 +4,17 @@ function App() {
     const [donnees, setDonnees] = useState([]);
     const [filtre, setFiltre] = useState(""); // "" = tous
 
-    // appel API une seule fois au chargement
-    useEffect(() => {
-        fetch("http://localhost:3001/api/data")
+    // récupération des données depuis l'API
+    useEffect(() => { 
+        fetch("http://localhost:3001/api/data") //URL de l'API qui affichera les données
             .then((res) => res.json())
-            .then((data) => setDonnees(data))
-            .catch((err) => console.error("Erreur API :", err));
+            .then((data) => {
+                console.log("Données reçues:", data);  //Valider
+                setDonnees(data);
+            })
+            .catch((err) => console.error("Erreur API :", err)); //Erreur
     }, []);
+
 
     return (
         <div style={{ padding: "2rem", fontFamily: "Arial" }}>
@@ -39,15 +43,16 @@ function App() {
                 </thead>
                 <tbody>
                 {donnees
-                    .filter((item) => !filtre || item.type === filtre)
+                    .filter(item => filtre === "" || item.type === filtre)
                     .map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.capteur}</td>
-                            <td>{item.type}</td>
-                            <td>{item.valeur}</td>
-                            <td>{new Date(item.timestamp).toLocaleString()}</td>
-                        </tr>
-                    ))}
+                    <tr key={index}>
+                        <td>{item.capteur}</td>
+                        <td>{item.type}</td>
+                        <td>{item.valeur}</td>
+                        <td>{new Date(item.timestamp).toLocaleString()}</td>
+                    </tr>
+                    ))
+                }
                 </tbody>
             </table>
         </div>
