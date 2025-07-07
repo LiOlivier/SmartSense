@@ -4,7 +4,7 @@ import Co2Widget from "../Widgets/Co2Widget";
 import HumidityWidget from "../Widgets/HumidityWidget";
 import TemperatureWidget from "../Widgets/TemperatureWidget";
 import "./Dashboard.css";
-import { getData } from "../../services/api";
+import { getData } from "../services/api"; // Chemin corrigé
 
 function Dashboard() {
   const [donnees, setDonnees] = useState([]);
