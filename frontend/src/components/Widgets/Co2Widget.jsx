@@ -24,7 +24,7 @@ function Co2Widget() {
         return "#f3d4a8"; // jaune clair
       case "ok":
       default:
-        return "#baf8b6"; // vert clair
+        return "#e4fcdd"; // vert clair
     }
   };
 
