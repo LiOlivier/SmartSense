@@ -14,8 +14,13 @@ const Donut = ({ data }) => {
   const values = data.map(d => d.value);
 
   const backgroundColors = [
-    '#e87dff', '#a05aff', '#8758e0',
-    '#c28dfc', '#dcb0ff', '#f2e0ff', '#ded9ff'
+    '#E6DFF1',
+    '#C0DEDB', 
+    '#F1EDE9',
+    '#D9F2F2', 
+    '#F8E9E9', 
+    '#E3F1E6',
+    '#F5F5DC' 
   ];
 
   const chartData = {

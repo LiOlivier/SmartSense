@@ -47,6 +47,7 @@ function Dashboard() {
         <div style={{ marginTop: "2rem" }}>
         <Donut data={sampleData} />
       </div>
+      
     </div>
 
   );
