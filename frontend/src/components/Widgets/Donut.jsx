@@ -13,18 +13,19 @@ const Donut = ({ data }) => {
   const labels = data.map(d => d.label);
   const values = data.map(d => d.value);
 
-  const backgroundColors = [
-    '#E6DFF1',
-    '#C0DEDB', 
-    '#F1EDE9',
-    '#D9F2F2', 
-    '#F8E9E9', 
-    '#E3F1E6',
-    '#F5F5DC' 
-  ];
+const backgroundColors = [
+        '#BFA2DB',
+        '#A1C9C1',
+        '#F4BFBF',
+        '#F7D9C4',
+        '#B6D8F2',
+        '#FFE382',
+        '#C8E3D4'
+];
 
   const chartData = {
     labels,
+
     datasets: [
       {
         data: values,
@@ -37,13 +38,13 @@ const Donut = ({ data }) => {
   const options = {
     plugins: {
       legend: {
-        position: 'top',
+        position: 'right',
         labels: {
           color: 'white',
         }
       },
     },
-    cutout: '60%'
+    cutout: '70%'
   };
 
   return (
