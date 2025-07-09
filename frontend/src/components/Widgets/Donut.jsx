@@ -44,7 +44,7 @@ const backgroundColors = [
         }
       },
     },
-    cutout: '70%'
+    cutout: '55%'
   };
 
   return (
