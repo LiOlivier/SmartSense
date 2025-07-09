@@ -3,7 +3,7 @@ import React from "react";
 function HumidityWidget() {
     const data = [
         { 
-            valeur: 30, 
+            valeur: 35, 
             timestamp: new Date().toISOString()
         },
         { 
@@ -17,14 +17,17 @@ function HumidityWidget() {
 
     let bgColor = "#e5f6ff"; 
     if(last && last.valeur > 50)
-      {
-        bgColor = "#ffe5e5"; 
-      }
+    {
+      bgColor = "#ffe5e5"; 
+    }
     else if(last && last.valeur < 30)
-      {
-        bgColor = "#fff5e5"; 
-      }
-
+    {
+      bgColor = "#fff5e5"; 
+    }
+    else if (last && last.valeur >= 15 && last.valeur <= 31)
+    {
+      bgColor = "#e5ffe5";  
+    }
     return (
         <div style={{
         border: "1px solid #ccc",
