@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import Co2Widget from "../Widgets/Co2Widget";
 import HumidityWidget from "../Widgets/HumidityWidget";
 import TemperatureWidget from "../Widgets/TemperatureWidget";
+import LineChart from "../Widgets/Graph";
 import Donut from "../Widgets/Donut"; 
 import "./Dashboard.css";
-import { getData } from "../services/api"; // Chemin corrigé
+import { getData } from "../services/api"; 
+
 
 function Dashboard() {
 
@@ -22,7 +24,7 @@ function Dashboard() {
   return Object.entries(countByType).map(([label, value]) => ({ label, value }));
   };
 
-  const donutData = getDonutData(donnees);
+  // const donutData = getDonutData(donnees);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,9 +50,13 @@ function Dashboard() {
         <HumidityWidget data={donnees.filter(d => d.type === "humidité")} />
       </div>
 
-        <div style={{ marginTop: "2rem" }}>
+        {/* <div style={{ marginTop: "2rem" }}>
         <Donut data={donutData} />
-      </div>
+      </div> */}
+
+      {
+        <LineChart data={donnees} />
+      }
       
     </div>
 
