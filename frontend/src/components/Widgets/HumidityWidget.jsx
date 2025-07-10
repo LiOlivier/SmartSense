@@ -34,6 +34,7 @@ function HumidityWidget() {
         padding: "1rem",
         margin: "1rem",
         backgroundColor: bgColor
+        
     }}>
       <h2>💧 Humidité</h2>
       {last ? (
