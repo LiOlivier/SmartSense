@@ -19,3 +19,9 @@ Filtrer les données par type (CO2, température, humidité)
 - Interface responsive et ergonomique (mobile + desktop)
 - Thème clair/sombre
 
+
+
+Aujourd'hui je peux pas trop travailler demain, faire la modificatio ndes fonctionnalitées des
+graphiques essayer d'aligner le graph bien + faire une bonne interface
+
+Plus tard plus tard faire du UX, pour les version mobiles 
