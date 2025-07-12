@@ -54,9 +54,18 @@ function Dashboard() {
         <Donut data={donutData} />
       </div> */}
 
-      {
+    <div className="dashboard-bottom">
+      <div className="graph-section">
         <LineChart data={donnees} />
-      }
+      </div>
+      <div className="summary-section">
+        <h3>Résumé</h3>
+        <p> Moyenne température : ...</p>
+        <p> Moyenne humidité : ...</p>
+        <p> Moyenne CO₂ : ...</p>
+      </div>
+    </div>
+
       
     </div>
 

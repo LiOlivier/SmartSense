@@ -16,26 +16,13 @@ function Co2Widget() {
     return "ok";
   };
 
-  const getBackgroundColor = (niveau) => {
-    switch (niveau) {
-      case "élevé":
-        return "#ebaaaa"; // rouge clair
-      case "moyen":
-        return "#f3d4a8"; // jaune clair
-      case "ok":
-      default:
-        return "#e4fcdd"; // vert clair
-    }
-  };
-
   const niveau = getCo2Level(last.valeur);
 
   return (
     <div style={{
-      border: "1px solid #ccc",
+      border: "1px",
       padding: "1rem",
       margin: "1rem",
-      backgroundColor: getBackgroundColor(niveau)
     }}>
       <h2>🌬️ CO₂</h2>
       {last ? (

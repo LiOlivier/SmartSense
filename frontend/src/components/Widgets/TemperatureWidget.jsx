@@ -10,26 +10,12 @@ function TemperatureWidget() {
 
   const last = data[0];
 
-  let bgColor = "#e5f6ff";
-  if (last && last.valeur > 31)
-  {
-    bgColor = "#ffe5e5"; 
-  }
-  else if (last && last.valeur < 15)
-  {
-    bgColor = "#fff5e5"; 
-  }
-  else if (last && last.valeur >= 15 && last.valeur <= 31)
-  {
-    bgColor = "#e5ffe5";  
-  }
-  
     return (
         <div style={{
-        border: "1px solid #ccc",
+        border: "1px",
         padding: "1rem",
         margin: "1rem",
-        backgroundColor: bgColor    }}>
+      }}>
         <h2>🌡️ Température</h2>
         {last ? (
             <>
