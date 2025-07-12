@@ -14,43 +14,45 @@ ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip,
 
 const processGraphData = (data, type) => {
   const now = new Date();
-  const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+  const start = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+  const labels = [];
 
-  const filtered = data
-    .filter(d => d.type === type && new Date(d.timestamp) >= oneDayAgo)
-    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  for (let i = 0; i <= 6; i++) {
+    const hour = new Date(start.getTime() + i * 60 * 60 * 1000);
+    const label = hour.getHours().toString().padStart(2, "0") + ":00";
+    labels.push(label);
+  }
 
-  const hourlyData = new Map();
+  const hourMap = {};
 
-  filtered.forEach(d => {
-    const date = new Date(d.timestamp);
-    const hour = date.getHours().toString().padStart(2, "0") + ":00";
-    hourlyData.set(hour, d.valeur);
-  });
+  data
+    .filter(d => d.type === type)
+    .forEach(d => {
+      const h = new Date(d.timestamp).getHours().toString().padStart(2, "0") + ":00";
+      hourMap[h] = d.valeur;
+    });
 
-  const labels = Array.from(hourlyData.keys());
-  const values = Array.from(hourlyData.values());
+  console.log("Graph data →", type, hourMap);
+
+  const values = labels.map(label => hourMap[label] !== undefined ? hourMap[label] : null);
 
   return { labels, values };
 };
+
 
 const SingleLineChart = ({ label, color, data }) => {
   if (!data || data.values.length === 0) {
     return <p style={{ color: "white" }}>Pas de données pour {label}</p>;
   }
 
-  let yMin = 0;
-  let yMax = 2000;
+  let yMin = 0, yMax = 2000;
 
   if (label.toLowerCase().includes("temp")) {
-    yMin = 0;
-    yMax = 40;
+    yMin = 0; yMax = 50;
   } else if (label.toLowerCase().includes("hum")) {
-    yMin = 0;
-    yMax = 100;
+    yMin = 0; yMax = 100;
   } else if (label.toLowerCase().includes("co₂") || label.toLowerCase().includes("co2")) {
-    yMin = 400;
-    yMax = 2000;
+    yMin = 400; yMax = 2000;
   }
 
   const chartData = {
@@ -62,6 +64,9 @@ const SingleLineChart = ({ label, color, data }) => {
         borderColor: color,
         backgroundColor: color,
         tension: 0.3,
+        spanGaps: false,
+        pointRadius: 3,
+        pointHoverRadius: 6
       }
     ]
   };
@@ -74,11 +79,14 @@ const SingleLineChart = ({ label, color, data }) => {
       }
     },
     scales: {
-      x: { ticks: { color: "white" } },
+      x: {
+        ticks: { color: "white" }
+      },
       y: {
         ticks: { color: "white" },
         min: yMin,
-        max: yMax
+        max: yMax,
+        beginAtZero: false
       }
     }
   };
@@ -90,8 +98,6 @@ const SingleLineChart = ({ label, color, data }) => {
     </div>
   );
 };
-
-
 
 const Graph = ({ data }) => {
   const tempData = processGraphData(data, "température");
