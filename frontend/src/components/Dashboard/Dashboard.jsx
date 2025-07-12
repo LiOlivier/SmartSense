@@ -43,7 +43,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1>📊 Dashboard SmartSense</h1>
+      <h1>Dashboard SmartSense</h1>
       <div className="widgets">
         <Co2Widget data={donnees.filter(d => d.type === "co2")} />
         <TemperatureWidget data={donnees.filter(d => d.type === "température")} />

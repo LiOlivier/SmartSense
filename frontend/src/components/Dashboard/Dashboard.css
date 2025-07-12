@@ -50,7 +50,7 @@ form {
   padding: 2rem;        
   display: flex;
   flex-direction: column;
-  gap: 2rem;            
+  gap: 0rem;            
 }
 
 
@@ -58,10 +58,7 @@ form {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-
-.widgets > div h2 {
-  font-size: 1rem;
+  margin-top: -2rem;
 }
 
 .widgets {
@@ -102,9 +99,8 @@ form {
 
 .dashboard-bottom {
   display: flex;
-  flex-direction: row;
   gap: 1rem;
-  margin-top: 2rem;
+  height: 250px;
 }
 
 .graph-section,
@@ -115,11 +111,8 @@ form {
   color: white;
 }
 
-/* Répartition des tailles */
-.graph-section {
-  flex: 2;
-}
-
+.graph-section,
 .summary-section {
-  flex: 1;
+  padding: 0.75rem;
+  font-size: 0.75rem;
 }

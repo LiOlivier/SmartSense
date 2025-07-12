@@ -7,24 +7,29 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const types = ["co2", "température", "humidité"];
 
 setInterval(() => {
-  const type = types[Math.floor(Math.random() * types.length)];
+  types.forEach(type => {
+    const fakeData = {
+      capteur: "Capteur - 1",
+      type,
+      valeur:
+        type === "température"
+          ? (15 + Math.random() * 15).toFixed(1) 
+          : type === "humidité"
+          ? Math.floor(Math.random() * 100)    
+          : Math.floor(400 + Math.random() * 1600), 
+      timestamp: new Date().toISOString()
+    };
 
-  const fakeData = {
-    capteur: "Capteur - 1",
-    type,
-    valeur: Math.floor(Math.random() * 2000),
-    timestamp: new Date().toISOString()
-  };
+    console.log("▶️ Donnée simulée :", fakeData);
 
-  console.log("▶️ Donnée simulée :", fakeData);
-
-  fetch("http://localhost:3001/api/data", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(fakeData)
-  })
-    .then(res => res.json())
-    .then(() => console.log("Donnée envoyée"))
-    .catch(err => console.error("Erreur simulateur :", err));
+    fetch("http://localhost:3001/api/data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(fakeData)
+    })
+      .then(res => res.json())
+      .then(() => console.log(`${type} envoyée`))
+      .catch(err => console.error("Erreur simulateur :", err));
+  });
 }, 3000);
 
