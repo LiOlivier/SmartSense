@@ -54,9 +54,6 @@ function Dashboard() {
         </div>
         <div className="summary-section">
           <h3>Résumé</h3>
-          <p>Moyenne température : ...</p>
-          <p>Moyenne humidité : ...</p>
-          <p>Moyenne CO₂ : ...</p>
         </div>
       </div>
     </div>

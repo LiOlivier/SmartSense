@@ -62,10 +62,12 @@ form {
 .widgets {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;              
-  justify-content: center; 
-  flex-wrap: wrap;          
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
+
 
 .widgets > div {
   background: linear-gradient(135deg, #1a1f2b, #10141c);
@@ -98,10 +100,11 @@ form {
 
 .dashboard-bottom {
   display: flex;
-  gap: 1rem;
-  height: 250px;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
-
 .graph-container {
   background: linear-gradient(135deg, #1a1f2b, #10141c);
   padding: 1rem;
@@ -109,11 +112,21 @@ form {
   width: 340px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
-.graph-section,
-.summary-section {
+
+.graph-section {
+  flex: 3;
+  background: linear-gradient(135deg, #1a1f2b, #10141c);
   padding: 1rem;
-  border-radius: 10px;
-  color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.summary-section {
+  flex: 1;
+  background: #1e2533;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .graph-section,
@@ -153,20 +166,21 @@ form {
   overflow-y: auto;
 }
 
-.top-widgets {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .middle-section {
   display: flex;
-  gap: 2rem;
   justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
 }
-
+.chart {
+  flex: 3;
+}
+.summary {
+  flex: 1;
+  background: #1e2533;
+  border-radius: 12px;
+  padding: 1rem;
+}
 .bottom-section {
   margin-top: auto;
 }
