@@ -1,30 +1,25 @@
 // Dashboard.jsx
 import React, { useEffect, useState } from "react";
+import Sidebar from "../Sidebar";
 import Co2Widget from "../Widgets/Co2Widget";
 import HumidityWidget from "../Widgets/HumidityWidget";
 import TemperatureWidget from "../Widgets/TemperatureWidget";
 import LineChart from "../Widgets/Graph";
-import Donut from "../Widgets/Donut"; 
+import Donut from "../Widgets/Donut";
 import "./Dashboard.css";
-import { getData } from "../services/api"; 
-
+import { getData } from "../services/api";
 
 function Dashboard() {
-
   const [donnees, setDonnees] = useState([]);
 
   const getDonutData = (donnees) => {
-  const countByType = {};
-
-  donnees.forEach(d => {
-    const type = d.type;
-    countByType[type] = (countByType[type] || 0) + 1;
-  });
-
-  return Object.entries(countByType).map(([label, value]) => ({ label, value }));
+    const countByType = {};
+    donnees.forEach(d => {
+      const type = d.type;
+      countByType[type] = (countByType[type] || 0) + 1;
+    });
+    return Object.entries(countByType).map(([label, value]) => ({ label, value }));
   };
-
-  // const donutData = getDonutData(donnees);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,36 +37,30 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="dashboard-container">
+    <div style={{ display: "flex" }}>
+    <Sidebar />
+
       <h1>Dashboard SmartSense</h1>
+
       <div className="widgets">
-        <Co2Widget data={donnees.filter(d => d.type === "co2")} />
         <TemperatureWidget data={donnees.filter(d => d.type === "température")} />
         <HumidityWidget data={donnees.filter(d => d.type === "humidité")} />
+        <Co2Widget data={donnees.filter(d => d.type === "co2")} />
       </div>
 
-        {/* <div style={{ marginTop: "2rem" }}>
-        <Donut data={donutData} />
-      </div> */}
-
-    <div className="dashboard-bottom">
-      <div className="graph-section">
-        <LineChart data={donnees} />
-      </div>
-      <div className="summary-section">
-        <h3>Résumé</h3>
-        <p> Moyenne température : ...</p>
-        <p> Moyenne humidité : ...</p>
-        <p> Moyenne CO₂ : ...</p>
+      <div className="dashboard-bottom">
+        <div className="graph-section">
+          <LineChart data={donnees} />
+        </div>
+        <div className="summary-section">
+          <h3>Résumé</h3>
+          <p>Moyenne température : ...</p>
+          <p>Moyenne humidité : ...</p>
+          <p>Moyenne CO₂ : ...</p>
+        </div>
       </div>
     </div>
-
-      
-    </div>
-
   );
 }
 
 export default Dashboard;
-
-

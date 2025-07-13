@@ -45,12 +45,10 @@ form {
 }
 
 .dashboard-container {
-  max-width: 1200px;   
-  margin: 0 auto;        
-  padding: 2rem;        
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0rem;            
+  align-items: center;
 }
 
 
@@ -70,12 +68,13 @@ form {
 }
 
 .widgets > div {
-  background-color: #1E242E;
+  background: linear-gradient(135deg, #1a1f2b, #10141c);
   color: white;
   padding: 0.75rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   min-width: 160px;
+
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -103,9 +102,15 @@ form {
   height: 250px;
 }
 
+.graph-container {
+  background: linear-gradient(135deg, #1a1f2b, #10141c);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 340px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
 .graph-section,
 .summary-section {
-  background-color: #1E242E;
   padding: 1rem;
   border-radius: 10px;
   color: white;
@@ -116,3 +121,53 @@ form {
   padding: 0.75rem;
   font-size: 0.75rem;
 }
+
+.summary {
+  background: #1e2533;
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  width: 240px;
+  height: fit-content;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.stacked-graphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.top-widgets {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.middle-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bottom-section {
+  margin-top: auto;
+}
+

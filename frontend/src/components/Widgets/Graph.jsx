@@ -14,30 +14,31 @@ ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip,
 
 const processGraphData = (data, type) => {
   const now = new Date();
-  const start = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+  const start = new Date(now.getTime() - 60 * 60 * 1000); // dernière heure
   const labels = [];
 
-  for (let i = 0; i <= 6; i++) {
-    const hour = new Date(start.getTime() + i * 60 * 60 * 1000);
-    const label = hour.getHours().toString().padStart(2, "0") + ":00";
+  // ➕ Ajoute les 60 dernières minutes
+  for (let i = 0; i <= 60; i++) {
+    const t = new Date(start.getTime() + i * 60 * 1000);
+    const label = t.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     labels.push(label);
   }
 
-  const hourMap = {};
-
+  const minuteMap = {};
   data
     .filter(d => d.type === type)
     .forEach(d => {
-      const h = new Date(d.timestamp).getHours().toString().padStart(2, "0") + ":00";
-      hourMap[h] = d.valeur;
+      const minute = new Date(d.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      minuteMap[minute] = d.valeur;
     });
 
-  console.log("Graph data →", type, hourMap);
+  console.log("Graph →", type, minuteMap);
 
-  const values = labels.map(label => hourMap[label] !== undefined ? hourMap[label] : null);
+  const values = labels.map(label => minuteMap[label] !== undefined ? minuteMap[label] : null);
 
   return { labels, values };
 };
+
 
 
 const SingleLineChart = ({ label, color, data }) => {
@@ -47,11 +48,16 @@ const SingleLineChart = ({ label, color, data }) => {
 
   let yMin = 0, yMax = 2000;
 
-  if (label.toLowerCase().includes("temp")) {
+  if(label.toLowerCase().includes("temp"))
+  {
     yMin = 0; yMax = 50;
-  } else if (label.toLowerCase().includes("hum")) {
+  } 
+  else if (label.toLowerCase().includes("hum"))
+  {
     yMin = 0; yMax = 100;
-  } else if (label.toLowerCase().includes("co₂") || label.toLowerCase().includes("co2")) {
+  } 
+  else if (label.toLowerCase().includes("co₂") || label.toLowerCase().includes("co2"))
+  {
     yMin = 400; yMax = 2000;
   }
 
@@ -65,7 +71,7 @@ const SingleLineChart = ({ label, color, data }) => {
         backgroundColor: color,
         tension: 0.3,
         spanGaps: false,
-        pointRadius: 3,
+        pointRadius: 0,
         pointHoverRadius: 6
       }
     ]
