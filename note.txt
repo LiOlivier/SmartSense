@@ -25,3 +25,5 @@ Aujourd'hui je peux pas trop travailler demain, faire la modificatio ndes foncti
 graphiques essayer d'aligner le graph bien + faire une bonne interface
 
 Plus tard plus tard faire du UX, pour les version mobiles 
+
+Changer les graphiques si possible et le style 
