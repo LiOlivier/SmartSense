@@ -49,9 +49,11 @@ function Dashboard() {
       </div>
 
       <div className="dashboard-bottom">
+        
         <div className="graph-section">
           <LineChart data={donnees} />
         </div>
+
         <div className="summary-section">
           <h3>Résumé</h3>
         </div>

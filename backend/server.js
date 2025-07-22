@@ -11,6 +11,8 @@ app.use(cors());
 const PORT = process.env.PORT || 3001; 
 const mongoURI = process.env.MONGO_URI;
 
+
+
 mongoose.connect(mongoURI) 
   .then(() =>
   {
@@ -26,6 +28,7 @@ mongoose.connect(mongoURI)
 
 const Data = require("./models/Data");  // importation de notre schéma de données de Data
 
+// Routes pour gérer les données (récupération l'API)
 app.get("/api/data", async (req, res) => {
   try {
     const allData = await Data.find().sort({ timestamp: -1 });
@@ -35,6 +38,7 @@ app.get("/api/data", async (req, res) => {
   }
 });
 
+// Route pour ajouter une nouvelle mesure (envoi de données)
 app.post("/api/data", async (req, res) =>
 {
   try

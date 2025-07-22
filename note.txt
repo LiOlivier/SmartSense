@@ -27,3 +27,6 @@ graphiques essayer d'aligner le graph bien + faire une bonne interface
 Plus tard plus tard faire du UX, pour les version mobiles 
 
 Changer les graphiques si possible et le style 
+
+
+Pour l'instant je suis à court d'idée réfléchi demain sur les solutions que tu peut faire pour proposer un front plus agencer et plus stylé (si possbile des fonctionnalitées qui permettent de mieux espacer les données)
