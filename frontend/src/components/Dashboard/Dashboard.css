@@ -1,187 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 body {
   background-color: #0E1218;
   color: white;
-  font-family: sans-serif;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
-th, td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: left;
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 80px 1fr 2fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  gap: 1.5rem;
 }
 
-th {
-  background-color: #f4f4f4;
-}
-
-input, select, button {
-  padding: 8px 12px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-form {
-  margin-bottom: 20px;
-}
-
-.dashboard-container {
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.dashboard-container h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  margin-top: -2rem;
+.dashboard-layout > .sidebar {
+  grid-row: 1 / span 3;
 }
 
 .widgets {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(1, 3fr); /* 3 colonnes */
   gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .widgets {
+    grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+  }
 }
 
 
 .widgets > div {
   background: linear-gradient(135deg, #1a1f2b, #10141c);
-  color: white;
   padding: 0.75rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  min-width: 160px;
-
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease;
-  opacity: 0.9;
-}
-
-.widgets > div h2 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.widgets > div p {
-  margin: 0.25rem 0;
-  line-height: 1.2;
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-family: 'Roboto', sans-serif;
-}
-
-.dashboard-bottom {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-.graph-container {
-  background: linear-gradient(135deg, #1a1f2b, #10141c);
-  padding: 1rem;
-  border-radius: 12px;
-  width: 340px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
 .graph-section {
-  flex: 3;
+  grid-column: 3;
+  grid-row: 1;
   background: linear-gradient(135deg, #1a1f2b, #10141c);
-  padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-
-.summary-section {
-  flex: 1;
-  background: #1e2533;
   padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.graph-section,
-.summary-section {
-  padding: 0.75rem;
-  font-size: 0.75rem;
-}
-
-.summary {
-  background: #1e2533;
-  padding: 1rem;
-  border-radius: 12px;
-  color: white;
-  width: 240px;
-  height: fit-content;
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-}
-
-.stacked-graphs {
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.dashboard-layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  overflow-y: auto;
-}
-
-.middle-section {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.chart {
-  flex: 3;
-}
-.summary {
-  flex: 1;
+.summary-section {
+  grid-column: 2 / span 2;
+  grid-row: 2;
   background: #1e2533;
   border-radius: 12px;
   padding: 1rem;
-}
-.bottom-section {
-  margin-top: auto;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
 }
 
+@media (max-width: 768px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .widgets {
+    grid-template-columns: 1fr;
+    grid-column: 1;
+  }
+
+  .graph-section {
+    grid-column: 1;
+  }
+
+  .summary-section {
+    grid-column: 1;
+  }
+}
