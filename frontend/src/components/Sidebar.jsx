@@ -13,6 +13,8 @@ const Sidebar = () => {
       <div className="sidebar-bottom">
         <img src="/svg/menu.svg" alt="Capteurs" className="nav-icon" />
         <img src="/svg/meteo.svg" alt="Météo" className="nav-icon" />
+        <img src="/svg/map.svg" alt="Carte" className="nav-icon" />
+        <img src="/svg/settings.svg" alt="Paramètres" className="nav-icon" />
       </div>
     </div>
   );

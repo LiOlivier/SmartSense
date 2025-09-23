@@ -24,6 +24,11 @@
   margin-bottom: 1rem;
 }
 
+.sidebar-icons {
+  display: flex;
+  flex-direction: column; 
+  gap: 1.5rem;            
+}
 
 .nav-icon {
   width: 40px;
