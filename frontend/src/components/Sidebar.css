@@ -1,35 +1,34 @@
 .sidebar {
   width: 80px;
-  background: linear-gradient(to bottom, #1a1f2b, #11141a);
+  height: 100vh;
+  background: #10141c;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
 
 .logo {
-  font-size: 1.5rem;
-  color: white;
+  width: 40px;
+  height: auto;
 }
 
-.nav-icons {
+.sidebar-bottom {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .nav-icon {
-  font-size: 1.5rem;
-  margin: 1rem 0;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  opacity: 0.8;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
+  filter: brightness(0) invert(1); 
 }
 
 .nav-icon:hover {
-  opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
-
-

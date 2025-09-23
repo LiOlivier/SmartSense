@@ -4,12 +4,14 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="logo">🌡️</div>
-      <nav className="nav-icons">
-        <div className="nav-item">📊</div> {/* Capteurs */}
-        <div className="nav-item">🌤️</div> {/* Météo */}
-        {/* Ajoute plus d’icônes ici */}
-      </nav>
+      <div className="sidebar-top">
+        <img src="" alt="SmartSense" className="logo" />
+      </div>
+
+      <div className="sidebar-bottom">
+        <img src="/svg/menu.svg" alt="Capteurs" className="nav-icon" />
+        <img src="/svg/meteo.svg" alt="Météo" className="nav-icon" />
+      </div>
     </div>
   );
 };
