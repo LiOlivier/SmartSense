@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+
+  <!-- Cerveau simplifié -->
+  <path d="M170 60
+           C150 55, 120 70, 115 95
+           C95 115, 98 150, 115 168
+           C125 178, 130 190, 145 200
+           C160 210, 160 210, 170 206
+           C180 210, 180 210, 195 200
+           C210 190, 215 178, 225 168
+           C242 150, 245 115, 225 95
+           C220 70, 190 55, 170 60 Z" fill="#f9b7d1" stroke="#e985a8" stroke-width="3"></path>
+
+  <!-- Traits internes -->
+  <path d="M170 78
+           C175 105, 165 155, 170 205" stroke="#e985a8" stroke-width="3" fill="none"></path>
+  <path d="M135 125 Q152 140 135 158" stroke="#e985a8" stroke-width="3" fill="none"></path>
+  <path d="M205 125 Q188 140 205 158" stroke="#e985a8" stroke-width="3" fill="none"></path>
+
+  <!-- Texte corrigé visuellement (léger décalage à droite) -->
+  <text x="49.5%" y="280" text-anchor="middle" font-family="Poppins, Inter, Montserrat, sans-serif" font-size="44" font-weight="500" fill="#ffffff">
+    SmartSense
+  </text>
+</svg>

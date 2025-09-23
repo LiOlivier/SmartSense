@@ -24,19 +24,19 @@ function HumidityWidget() {
 
         
     }}>
-      <h2>💧 Humidité</h2>
+      <h2> Humidité</h2>
       {last ? (
         <>
-          <p><strong>Valeur :</strong> {last.valeur} %</p>
+          <p>{last.valeur} %</p>
           <p><strong>Heure :</strong> {new Date(last.timestamp).toLocaleTimeString()}</p>
             {last.valeur < 30 && (
-              <p style={{ color: "orange"}}>⚠️ Humidité trop basse !</p>
+              <p style={{ color: "orange"}}>Humidité trop basse !</p>
             )}
             {last.valeur > 50 && (
-              <p style={{ color: "red" }}>⚠️ Humidité élevée !</p>
+              <p style={{ color: "red" }}>Humidité élevée !</p>
             )}
             {last.valeur >= 30 && last.valeur <= 50 && (
-              <p style={{ color: "green" }}>✅ Humidité correcte.</p>
+              <p style={{ color: "green" }}>Humidité correcte.</p>
             )}
             </>
           ) : (      

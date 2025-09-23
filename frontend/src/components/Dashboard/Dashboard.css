@@ -6,8 +6,6 @@ body {
 
 .dashboard-layout {
   display: grid;
-  grid-template-columns: 80px 1fr 2fr;
-  grid-template-rows: auto 1fr auto;
   height: 100vh;
   gap: 1.5rem;
 }
@@ -18,19 +16,15 @@ body {
 
 .widgets {
   display: grid;
-  grid-template-columns: repeat(1, 3fr); /* 3 colonnes */
-  gap: 1.5rem;
-}
-
-
-@media (max-width: 768px) {
-  .widgets {
-    grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
-  }
+  gap: 1rem;
+  align-content: start; 
+  
 }
 
 
 .widgets > div {
+  flex: none;
+  height: auto;
   background: linear-gradient(135deg, #1a1f2b, #10141c);
   padding: 0.75rem;
   border-radius: 12px;
@@ -58,22 +52,3 @@ body {
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 768px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-
-  .widgets {
-    grid-template-columns: 1fr;
-    grid-column: 1;
-  }
-
-  .graph-section {
-    grid-column: 1;
-  }
-
-  .summary-section {
-    grid-column: 1;
-  }
-}

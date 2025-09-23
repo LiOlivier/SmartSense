@@ -5,8 +5,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-top">
-        <img src="" alt="SmartSense" className="logo" />
+        <img src="/svg/logo.svg" alt="SmartSense" className="logo" />
       </div>
+
+      <div className="sidebar-separator"></div>
 
       <div className="sidebar-bottom">
         <img src="/svg/menu.svg" alt="Capteurs" className="nav-icon" />

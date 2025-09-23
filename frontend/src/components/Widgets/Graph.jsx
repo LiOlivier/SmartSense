@@ -14,30 +14,35 @@ ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip,
 
 const processGraphData = (data, type) => {
   const now = new Date();
-  const start = new Date(now.getTime() - 60 * 60 * 1000); // dernière heure
+  const start = new Date(now.getTime() - 60 * 60 * 1000); 
   const labels = [];
 
-  // ➕ Ajoute les 60 dernières minutes
+  const formatMinute = (date) => {
+    return new Date(date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  };
+
   for (let i = 0; i <= 60; i++) {
     const t = new Date(start.getTime() + i * 60 * 1000);
-    const label = t.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    labels.push(label);
+    labels.push(formatMinute(t));   
   }
 
   const minuteMap = {};
   data
     .filter(d => d.type === type)
     .forEach(d => {
-      const minute = new Date(d.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      const minute = formatMinute(d.timestamp);  
       minuteMap[minute] = d.valeur;
     });
 
   console.log("Graph →", type, minuteMap);
 
-  const values = labels.map(label => minuteMap[label] !== undefined ? minuteMap[label] : null);
+  const values = labels.map(label => 
+    minuteMap.hasOwnProperty(label) ? minuteMap[label] : null
+  );
 
   return { labels, values };
 };
+
 
 
 
@@ -105,18 +110,24 @@ const SingleLineChart = ({ label, color, data }) => {
   );
 };
 
-const Graph = ({ data }) => {
-  const tempData = processGraphData(data, "température");
-  const co2Data = processGraphData(data, "co2");
-  const humiData = processGraphData(data, "humidité");
+const Graph = ({ data, type }) => {
+  const graphData = processGraphData(data, type);
+  
+  let label = "";
+  let color = "";
 
-  return (
-    <div className="stacked-graphs">
-      <SingleLineChart label="🌡️ Température (°C)" color="#90caf9" data={tempData} />
-      <SingleLineChart label="🌬️ CO₂ (ppm)" color="#f7b267" data={co2Data} />
-      <SingleLineChart label="💧 Humidité (%)" color="#b39ddb" data={humiData} />
-    </div>
-  );
+  if (type === "température") {
+    label = " Température (°C)";
+    color = "#90caf9";
+  } else if (type === "co2") {
+    label = " CO₂ (ppm)";
+    color = "#f7b267";
+  } else if (type === "humidité") {
+    label = "Humidité (%)";
+    color = "#b39ddb";
+  } 
+
+  return <SingleLineChart label={label} color={color} data={graphData} />;
 };
 
 export default Graph;

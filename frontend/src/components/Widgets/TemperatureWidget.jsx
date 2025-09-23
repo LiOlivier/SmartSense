@@ -16,14 +16,14 @@ function TemperatureWidget() {
         padding: "1rem",
         margin: "1rem",
       }}>
-        <h2>🌡️ Température</h2>
+        <h2>Température</h2>
         {last ? (
             <>
-            <p><strong>Valeur :</strong> {last.valeur} °C</p>
+            <p>{last.valeur} °C</p>
             <p><strong>Heure :</strong> {new Date(last.timestamp).toLocaleTimeString()}</p>
-                {last.valeur > 31 && <p style={{ color: "red" }}>⚠️ Température élevée !</p>}
-                {last.valeur < 15 && <p style={{ color: "orange" }}>⚠️ Température trop basse !</p>}
-                {last.valeur >= 15 && last.valeur <= 31 && <p style={{ color: "green" }}>✅ Température correcte.</p>} 
+                {last.valeur > 31 && <p style={{ color: "red" }}> Température élevée !</p>}
+                {last.valeur < 15 && <p style={{ color: "orange" }}> Température trop basse !</p>}
+                {last.valeur >= 15 && last.valeur <= 31 && <p style={{ color: "green" }}>Température correcte.</p>} 
             </>
         ) : (
         <p>Aucune donnée disponible</p>

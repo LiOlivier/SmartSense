@@ -24,14 +24,14 @@ function Co2Widget() {
       padding: "1rem",
       margin: "1rem",
     }}>
-      <h2>🌬️ CO₂</h2>
+      <h2>CO₂</h2>
       {last ? (
         <>
-          <p><strong>Valeur :</strong> {last.valeur} ppm</p>
+          <p> {last.valeur} ppm</p>
           <p><strong>Heure :</strong> {new Date(last.timestamp).toLocaleTimeString()}</p>
-          {niveau === "élevé" && <p style={{ color: "red" }}>⚠️ Niveau élevé de CO₂ !</p>}
-          {niveau === "moyen" && <p style={{ color: "orange" }}>⚠️ Niveau modéré de CO₂.</p>}
-          {niveau === "ok" && <p style={{ color: "green" }}>✅ Niveau de CO₂ correct.</p>}
+          {niveau === "élevé" && <p style={{ color: "red" }}>Niveau élevé de CO₂ !</p>}
+          {niveau === "moyen" && <p style={{ color: "orange" }}>Niveau modéré de CO₂.</p>}
+          {niveau === "ok" && <p style={{ color: "green" }}> Niveau de CO₂ correct.</p>}
         </>
       ) : (
         <p>Aucune donnée disponible</p>
