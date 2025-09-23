@@ -1,5 +1,5 @@
 .sidebar {
-  width: 100px;
+  width: 120px;
   height: auto;
   background: #10141c;
   display: flex;
@@ -12,7 +12,8 @@
 
 .logo {
   margin-top: -0.8rem;
-  width: 80px;
+  margin-bottom: 0.5rem;
+  width: 90px;
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -20,17 +21,12 @@
 .sidebar-bottom {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 11rem;
   margin-bottom: 1rem;
 }
-
-.sidebar-icons {
-  display: flex;
-  flex-direction: column; 
-  gap: 1.5rem;            
-}
-
+ 
 .nav-icon {
+  margin-top: 0.5rem;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -40,6 +36,7 @@
   transition: transform 0.2s ease;
   filter: brightness(0) invert(1);
   gap: 1rem;
+  opacity: 0.8;
 }
 
 .nav-icon:hover {
