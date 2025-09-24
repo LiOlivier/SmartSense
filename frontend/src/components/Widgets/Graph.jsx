@@ -97,7 +97,7 @@ const SingleLineChart = ({ label, color, data }) => {
         beginAtZero: false
       }
     }
-  };
+    };
 
   return (
     <div className="graph-container">

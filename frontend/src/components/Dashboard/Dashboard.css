@@ -6,6 +6,8 @@ body {
 
 .dashboard-layout {
   display: grid;
+  grid-template-columns: 80px 1fr 2fr;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
   gap: 1.5rem;
 }
@@ -21,6 +23,10 @@ body {
   
 }
 
+.graph-container {
+  width: 30%;
+  height: auto;  
+}
 
 .widgets > div {
   flex: none;
