@@ -43,9 +43,6 @@ const processGraphData = (data, type) => {
   return { labels, values };
 };
 
-
-
-
 const SingleLineChart = ({ label, color, data }) => {
   if (!data || data.values.length === 0) {
     return <p style={{ color: "white" }}>Pas de données pour {label}</p>;
@@ -110,9 +107,10 @@ const SingleLineChart = ({ label, color, data }) => {
   );
 };
 
+
 const Graph = ({ data, type }) => {
   const graphData = processGraphData(data, type);
-  
+
   let label = "";
   let color = "";
 

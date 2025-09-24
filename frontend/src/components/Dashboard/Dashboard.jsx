@@ -36,9 +36,11 @@ function Dashboard() {
         <Co2Widget data={donnees.filter(d => d.type === "co2")} />
       </div>
 
-      <div className="graph-section">
-        <LineChart data={donnees} />
-      </div>
+  <div className="graph-section">
+    <LineChart data={donnees} type="température" />
+    <LineChart data={donnees} type="humidité" />
+    <LineChart data={donnees} type="co2" />
+  </div>
 
       <div className="summary-section">
         <h3>Résumé</h3>
