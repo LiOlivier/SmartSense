@@ -6,21 +6,24 @@ body {
 
 .dashboard-layout {
   display: grid;
-  grid-template-columns: auto auto auto; 
-  grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  grid-template-columns: 120px 2fr 1.5fr; 
+  grid-template-rows: auto 1fr;          
   gap: 1.5rem;
-  overflow: hidden;
-  
+  height: 100vh;
+  padding: 1rem;
+  align-items: stretch;
 }
 
 .dashboard-layout > .sidebar {
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
 }
 
 .widgets {
   display: grid;
+  grid-column: 2;
   gap: 1rem;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
   align-content: start; 
   background-color: #40404685 ;
   border-radius: 20px;
@@ -30,8 +33,8 @@ body {
 
 
 .graph-container {
-  width: 95%;
-  height: auto; 
+  max-width: 900px;  
+  min-width: 600px;  
   background: linear-gradient(135deg, #1a1f2b, #10141c);
   border-radius: 12px;
   margin: auto;
