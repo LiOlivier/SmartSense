@@ -11,6 +11,7 @@ body {
   height: 100vh;
   gap: 1.5rem;
   overflow: hidden;
+  
 }
 
 .dashboard-layout > .sidebar {
@@ -21,14 +22,20 @@ body {
   display: grid;
   gap: 1rem;
   align-content: start; 
-  background-color: #1F1F22 ;
-  border-radius: 25px;
+  background-color: #40404685 ;
+  border-radius: 20px;
+  color: rgba(73, 73, 75, 0.329)
+  linear-gradient(135deg, #c2c6cf, #5b616d);
 }
 
 
 .graph-container {
-  width: 100%;
-  height: auto;  
+  width: 90%;
+  height: auto; 
+  background: linear-gradient(135deg, #1a1f2b, #10141c);
+  border-radius: 12px;
+  margin: auto;
+  padding: 10px;
 }
 
 .widgets > div {
@@ -43,13 +50,14 @@ body {
 .graph-section {
   grid-column: 3;
   grid-row: 1;
-  background: linear-gradient(135deg, #1a1f2b, #10141c);
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  background-color: #40404685 ;
+
 }
 
 .summary-section {
@@ -59,5 +67,7 @@ body {
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  background-color: #40404685 ;
+
 }
 
