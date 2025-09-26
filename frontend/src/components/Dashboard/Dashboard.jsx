@@ -6,6 +6,7 @@ import TemperatureWidget from "../Widgets/TemperatureWidget";
 import LineChart from "../Widgets/Graph";
 import { getData } from "../services/api";
 import "./Dashboard.css";
+import GraphCarousel from "../Widgets/GraphCarousel";
 
 function Dashboard() {
   const [donnees, setDonnees] = useState([]);
@@ -38,12 +39,10 @@ function Dashboard() {
       </div>
 
     <div className="graph-section">
-      <LineChart data={donnees} type="température" />
-      <LineChart data={donnees} type="humidité" />
-      <LineChart data={donnees} type="co2" />
+            <GraphCarousel data={donnees} />
     </div>
 
-      <div className="summary-section">
+    <div className="summary-section">
         <h3>Résumé</h3>
       </div>
     </div>

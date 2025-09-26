@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import Graph from "./Graph";
+import GraphCarousel from "./GraphCarousel";
 import {
   Chart as ChartJS,
   LineElement,
