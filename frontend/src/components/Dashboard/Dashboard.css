@@ -21,8 +21,10 @@ body {
   display: grid;
   gap: 1rem;
   align-content: start; 
-  
+  background-color: #1F1F22 ;
+  border-radius: 25px;
 }
+
 
 .graph-container {
   width: 100%;

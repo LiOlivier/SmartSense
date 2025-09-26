@@ -31,6 +31,7 @@ function Dashboard() {
       </div>
 
       <div className="widgets">
+        {/* <p>Données Capteurs</p> */}
         <TemperatureWidget data={donnees.filter(d => d.type === "température")} />
         <HumidityWidget data={donnees.filter(d => d.type === "humidité")} />
         <Co2Widget data={donnees.filter(d => d.type === "co2")} />
