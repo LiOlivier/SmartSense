@@ -6,7 +6,7 @@ body {
 
 .dashboard-layout {
   display: grid;
-  grid-template-columns: 120px 2fr 1.5fr; 
+  grid-template-columns: 120px auto 1fr; 
   grid-template-rows: auto 1fr;          
   gap: 1.5rem;
   height: 100vh;
@@ -19,18 +19,31 @@ body {
 }
 
 .widgets {
-  display: grid;
+  display: flex;
   grid-column: 2;
-  gap: 1rem;
-  height: 100%;
+  gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
   align-content: start; 
   background-color: #40404685 ;
   border-radius: 20px;
   color: rgba(73, 73, 75, 0.329)
   linear-gradient(135deg, #c2c6cf, #5b616d);
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  padding: 1rem;
+  
 }
 
+.widgets > div {
+  width: 250px;  
+  height: 250px; 
+  background: linear-gradient(135deg, #1a1f2b, #10141c);
+  padding: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  
+}
 
 .graph-container {
   max-width: 900px;  
@@ -41,14 +54,6 @@ body {
   padding: 10px;
 }
 
-.widgets > div {
-  flex: none;
-  height: auto;
-  background: linear-gradient(135deg, #1a1f2b, #10141c);
-  padding: 0.75rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
 
 .graph-section {
   grid-column: 3;
@@ -60,6 +65,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   background-color: #40404685 ;
+  
 }
 
 .summary-section {
