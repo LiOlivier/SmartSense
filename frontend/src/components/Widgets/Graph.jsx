@@ -15,30 +15,32 @@ ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip,
 
 const processGraphData = (data, type) => {
   const now = new Date();
-  const start = new Date(now.getTime() - 60 * 60 * 1000); 
+  const start = new Date(now.getTime() - 6 * 60 * 60 * 1000);
   const labels = [];
 
-  const formatMinute = (date) => {
-    return new Date(date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  const formatHeure = (date) => {
+    const d = new Date(date);
+    d.setMinutes(0, 0, 0);
+    return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
   for (let i = 0; i <= 60; i++) {
-    const t = new Date(start.getTime() + i * 60 * 1000);
-    labels.push(formatMinute(t));   
+    const t = new Date(start.getTime() + i * 60 * 60 * 1000);
+    labels.push(formatHeure(t));   
   }
 
-  const minuteMap = {};
-  data
-    .filter(d => d.type === type)
-    .forEach(d => {
-      const minute = formatMinute(d.timestamp);  
-      minuteMap[minute] = d.valeur;
-    });
+const hourMap = {};
+data
+  .filter(d => d.type === type)
+  .forEach(d => {
+    const hour = formatHeure(d.timestamp);  
+    hourMap[hour] = d.valeur;
+  });
 
-  console.log("Graph →", type, minuteMap);
+  console.log("Graph →", type, hourMap);
 
   const values = labels.map(label => 
-    minuteMap.hasOwnProperty(label) ? minuteMap[label] : null
+    hourMap.hasOwnProperty(label) ? hourMap[label] : null
   );
 
   return { labels, values };
@@ -89,7 +91,10 @@ const SingleLineChart = ({ label, color, data }) => {
     },
     scales: {
       x: {
-        ticks: { color: "white" }
+        ticks: { color: "white",
+            maxTicksLimit: 6
+         }
+
       },
       y: {
         ticks: { color: "white" },
