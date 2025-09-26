@@ -30,7 +30,7 @@ body {
 
 
 .graph-container {
-  width: auto;
+  width: 95%;
   height: auto; 
   background: linear-gradient(135deg, #1a1f2b, #10141c);
   border-radius: 12px;
@@ -46,9 +46,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-
-
-
 
 .graph-section {
   grid-column: 3;
