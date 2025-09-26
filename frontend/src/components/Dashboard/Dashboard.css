@@ -25,7 +25,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   align-content: start; 
   background-color: #40404685 ;
-  border-radius: 20px;
+  border-radius: 12px;
   color: rgba(73, 73, 75, 0.329)
   linear-gradient(135deg, #c2c6cf, #5b616d);
   align-items: center;
