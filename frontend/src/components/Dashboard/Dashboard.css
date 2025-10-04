@@ -4,6 +4,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
 .dashboard-layout {
   display: grid;
   grid-template-columns: 120px auto 1fr; 

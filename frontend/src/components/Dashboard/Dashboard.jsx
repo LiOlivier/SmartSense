@@ -25,28 +25,29 @@ function Dashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  return (
+return (
+  <section className="dashboard-container">
     <div className="dashboard-layout">
       <div className="sidebar">
         <Sidebar />
       </div>
 
       <div className="widgets">
-        {/* <p>Données Capteurs</p> */}
         <TemperatureWidget data={donnees.filter(d => d.type === "température")} />
         <HumidityWidget data={donnees.filter(d => d.type === "humidité")} />
         <Co2Widget data={donnees.filter(d => d.type === "co2")} />
       </div>
 
-    <div className="graph-section">
-            <GraphCarousel data={donnees} />
-    </div>
+      <div className="graph-section">
+        <GraphCarousel data={donnees} />
+      </div>
 
-    <div className="summary-section">
+      <div className="summary-section">
         <h3>Résumé</h3>
       </div>
     </div>
-  );
+  </section>
+);
 }
 
 export default Dashboard;
